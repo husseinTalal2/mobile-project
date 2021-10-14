@@ -21,8 +21,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
       height: 64,
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
-        borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(30),
+        ),
         boxShadow: const [
           BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
         ],
@@ -65,7 +66,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                       child: CircleAvatar(
                         radius: isSelected(tabIndex) ? 25 : 25 * 0.7,
                         backgroundColor: isSelected(tabIndex)
-                            ? Theme.of(context).backgroundColor
+                            ? Colors.white
                             : Theme.of(context).primaryColor,
                         child: SizedBox(
                           width: 42,
@@ -87,6 +88,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
               Center(
                 child: Text(
                   label,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: isSelected(tabIndex)
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                  ),
                 ),
               )
             ],

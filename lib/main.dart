@@ -7,14 +7,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.teal[900]),
+      theme: ThemeData(primaryColor: const Color(0xff054b54)),
       home: const Scaffold(
-          drawer: Drawer(),
-          appBar: CustomAppBar(),
-          body: Center(
-            child: Text("center home"),
-          ),
-          bottomNavigationBar: BottomNavBar()),
+        drawer: Drawer(),
+        appBar: CustomAppBar(),
+        body: Center(
+          child: Text("center home"),
+        ),
+        bottomNavigationBar: BottomNavBar(),
+      ),
     );
   }
 }
@@ -33,12 +34,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
       ),
-      backgroundColor: Colors.teal[900],
+      backgroundColor: Theme.of(context).primaryColor,
       leading: IconButton(
           onPressed: () {
             Scaffold.of(context).openDrawer();
           },
-          icon: const Icon(Icons.menu, size: 36)),
+          icon: const Icon(Icons.sort, size: 36)),
       title: const Center(
           child: Icon(
         Icons.room,
@@ -47,7 +48,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: const [
         IconButton(
             onPressed: null,
-            icon: Icon(Icons.search, color: Colors.white, size: 36))
+            icon: Icon(Icons.search, color: Colors.white, size: 36)),
       ],
     );
   }
